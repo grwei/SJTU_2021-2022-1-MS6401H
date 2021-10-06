@@ -1,6 +1,8 @@
 # SJTU_2021-2022-1-MS6401H
 
 研-MS6401H-440-M01-物理海洋学
+项目主页：[链接](https://grwei.github.io/SJTU_2021-2022-1-MS6401H/)
+个人主页：[链接](https://grwei.github.io/)
 
 ## 题目 1-1
 
