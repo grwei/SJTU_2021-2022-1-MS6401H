@@ -1,1 +1,7 @@
 # List of untracked files to ignore
+
+data/woa18/
+data/*.nc
+bin/*
+
+*.asv
