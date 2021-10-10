@@ -5,9 +5,13 @@
 * [项目主页](https://grwei.github.io/SJTU_2021-2022-1-MS6401H/)
 * [个人主页](https://grwei.github.io/)
 
+[toc]
+
 ## 摘要
 
 1. 编写了从 [WOA18 数据集](https://www.ncei.noaa.gov/access/world-ocean-atlas-2018/)批量下载数据的脚本，可批量下载指定变量（例如，仅变量 `V_an`）的 `Netcdf` 子集。提供 `Command shell` 批处理版本 [`download_data.bat`](utilities/download_data.bat) 和 `Powershell` script 版本 [`download_data.ps1`](utilities/download_data.ps1)。
+2. 使用`MATLAB`语言编写了自动化的绘图程序，可一键绘制、保存所有图片。使用了第三方工具箱[`m_map`](https://www.eoas.ubc.ca/~rich/map.html)。自顶向下、模块化的程序设计思想的实践，提高了代码复用率。
+3. 对绘图结果做了定性的初步分析。
 
 ### 程序细节
 
@@ -35,6 +39,25 @@
 
 ### 提交
 
+#### 读图结论
+
+1. 海平面短波月平均入射辐射通量密度（积分辐照度）
+   1. 位变特性：固定时间，自太阳直射点所在纬度向两极递减；
+   2. 时变特性：固定地点，对正午太阳天顶距单调递减。
+2. 海平面长波月平均出射辐射通量密度
+   1. 位变特性：固定时间，自太阳直射点所在纬度向两极递增；
+   2. 时变特性：固定地点，对正午太阳天顶距单调递增，也就是夏半年出射通量密度小于冬半年。这是为什么？
+3. 海平面月平均净热通量（向上为正）
+   1. 夏至次月代数值最大且为正，冬至次月代数值最小且为负。
+4. 海平面月平均降水率
+   1. 位变特性：ITCZ附近极大，副热带附近极小
+   2. 时变特性：随大气大尺度环流带南北移动
+5. 海平面月平均蒸发率减降水率
+   1. 位变特性：ITCZ附近极小，且为负；副热带附近极大，且为正
+   2. 时变特性：随大气大尺度环流带南北移动
+
+#### 图集
+
 1. 短波辐射
    ![短波辐射](doc/fig/net%20short%20wave%20radiation.png)
 2. 长波辐射
@@ -51,6 +74,7 @@
 ### 已知的问题
 
 1. 要求经纬度坐标一致。否则，考虑先插值到参考坐标？
+2. 颜色图中，缺省值颜色为白色。考虑改为其他颜色？
 
 ### 描述
 
@@ -65,14 +89,42 @@
    1. 查阅 WOA18 文档；
    2. 【**当前方案**】在 Windows 中，使用 `invoke-webrequest -uri <URL> -outfile <FILE>`(powershell ) 或 `curl <URL> -o <FILE>` (cmd)，可写成 cmd 批处理或 shell 脚本。参考[视频](https://www.bilibili.com/video/av972621898/)；
    3. 使用 `Python` 的有关库。
+2. 增量图是按逐时间平均区间（年、冬、春、夏、秋）作出的，便于观察年代际变率的空间分布，但难以观察年代际变率对时间平均区间的变化。应增加绘制由冬、春、夏、秋四个增量图并列而成的图。（已解决）
 
 ### 提交
+
+#### 读图结论
+
+1. 海表面
+   1. 温度
+      1. 年代际变率的空间分布：部分地区温度下降；北半球增温较快，北极地区最快；
+      2. 年代际变率的时间分布：夏秋增温略大于冬春。
+   2. 盐度
+      1. 年代际变率的空间分布：变化较小。大西洋西岸、太平洋西岸，变率极大且为正；南海、澳大利亚北岸部分海区，变率极小且为负。
+      2. 年代际变率的时间分布：秋冬变化略大于春夏。
+2. 大西洋西经25°子午向断面（vertical section）
+   1. 温度
+      1. 年代际变率的空间分布：混合层以下，温度变率的绝对值较小。混合层中，赤道附近有温度变率极大且为正的区域；40N和40S附近有两个温度变率极小且为负的区域，且40N附近的极小负变率区域范围较40S附近的大；两极有两个变率极大且为正的区域。
+      2. 年代际变率的时间分布：秋季变化较快？
+   2. 盐度
+      1. 年代际变率的空间分布：盐度变率的绝对值较小，混合层以下盐度变率的绝对值甚小。混合层中，赤道附近有盐度变率极大且为正的区域；37N和37S附近有两个盐度变率极小且为负的区域，且37N附近的极小负变率区域范围较37S附近的大；两极有两个变率极大且为正的区域。
+      2. 年代际变率的时间分布：冬春变化略大于夏秋；夏季变化相对较大的垂直范围变小，与混合层厚度变化一致（夏季变薄），提示变化主要发生在混合层。
+3. 太平洋西经170°子午向断面（vertical section）
+   1. 温度
+      1. 年代际变率的空间分布：有变冷趋势。混合层以下，温度变率的绝对值较小。混合层中，赤道附近，有温度变率极大的区域，但仅为小的正值；中纬度有变率极小且为负的区域；太平洋北缘有变率极大且为正的区域，北冰洋南缘有变率极小且为负的区域。
+      2. 年代际变率的时间分布：秋冬变冷较显著的范围大于春夏的。
+   2. 盐度
+      1. 年代际变率的空间分布：混合层以下，盐度变率的绝对值较小。混合层中，低纬有变率极小且为负的区域；40N和40S附近有变率极小且为负的区域；50S-80S变率梯度较大，中间极小且为负、两侧极大且为正；白令海峡附近有变率极大且为正的区域。
+      2. 年代际变率的时间分布：未见显著区别。
+
+#### 图集
 
 1. 海表面
    1. 温度
       1. 年平均
          ![海表面年平均温度](doc/fig/Surface_Temperature_Annual.png)
          ![增量：海表面温度年平均](doc/fig/Surface_Temperature_Annual_diff_8594_A5B7.png)
+         ![增量：海表面温度季节平均](doc/fig/Surface_Temperature_diff2_8594_A5B7.png)
       2. 冬季平均
          ![海表面温度冬季平均](doc/fig/Surface_Temperature_Winter.png)
          ![增量：海表面温度冬季平均](doc/fig/Surface_Temperature_Winter_diff_8594_A5B7.png)
@@ -89,6 +141,7 @@
       1. 年平均
          ![海表面盐度年平均](doc/fig/Surface_Salinity_Annual.png)
          ![增量：海表面盐度年平均](doc/fig/Surface_Salinity_Annual_diff_8594_A5B7.png)
+         ![增量：海表面盐度季节平均](doc/fig/Surface_Salinity_diff2_8594_A5B7.png)
       2. 冬季平均
          ![海表面盐度冬季平均](doc/fig/Surface_Salinity_Winter.png)
          ![增量：海表面盐度冬季平均](doc/fig/Surface_Salinity_Winter_diff_8594_A5B7.png)
@@ -106,6 +159,7 @@
       1. 年平均
          ![25W年平均温度断面](doc/fig/Vertical_Section_-25.5E_Temperature_Annual.png)
          ![增量：25W年平均温度断面](doc/fig/Vertical_Section_-25.5E_Temperature_Annual_diff_8594_A5B7.png)
+         ![增量：25W季节平均温度断面](doc/fig/Vertical_Section_-25.5E_Temperature_diff2_8594_A5B7.png)
       2. 冬季平均
          ![25W冬季平均温度断面](doc/fig/Vertical_Section_-25.5E_Temperature_Winter.png)
          ![增量：25W冬季平均温度断面](doc/fig/Vertical_Section_-25.5E_Temperature_Winter_diff_8594_A5B7.png)
@@ -122,6 +176,7 @@
       1. 年平均
          ![25W年平均盐度断面](doc/fig/Vertical_Section_-25.5E_Salinity_Annual.png)
          ![增量：25W年平均盐度断面](doc/fig/Vertical_Section_-25.5E_Salinity_Annual_diff_8594_A5B7.png)
+         ![增量：25W季节平均盐度断面](doc/fig/Vertical_Section_-25.5E_Salinity_diff2_8594_A5B7.png)
       2. 冬季平均
          ![25W冬季平均盐度断面](doc/fig/Vertical_Section_-25.5E_Salinity_Winter.png)
          ![增量：25W冬季平均盐度断面](doc/fig/Vertical_Section_-25.5E_Salinity_Winter_diff_8594_A5B7.png)
@@ -134,11 +189,12 @@
       5. 秋季平均
          ![25W秋季平均盐度断面](doc/fig/Vertical_Section_-25.5E_Salinity_Autumn.png)
          ![增量：25W秋季平均盐度断面](doc/fig/Vertical_Section_-25.5E_Salinity_Autumn_diff_8594_A5B7.png)
-3. 大西洋西经170°子午向断面（vertical section）
+3. 太平洋西经170°子午向断面（vertical section）
    1. 温度
       1. 年平均
          ![170W年平均温度断面](doc/fig/Vertical_Section_-170.5E_Temperature_Annual.png)
          ![增量：170W年平均温度断面](doc/fig/Vertical_Section_-170.5E_Temperature_Annual_diff_8594_A5B7.png)
+         ![增量：170W季节平均温度断面](doc/fig/Vertical_Section_-170.5E_Temperature_diff2_8594_A5B7.png)
       2. 冬季平均
          ![170W冬季平均温度断面](doc/fig/Vertical_Section_-170.5E_Temperature_Winter.png)
          ![增量：170W冬季平均温度断面](doc/fig/Vertical_Section_-170.5E_Temperature_Winter_diff_8594_A5B7.png)
@@ -155,6 +211,7 @@
       1. 年平均
          ![170W年平均盐度断面](doc/fig/Vertical_Section_-170.5E_Salinity_Annual.png)
          ![增量：170W年平均盐度断面](doc/fig/Vertical_Section_-170.5E_Salinity_Annual_diff_8594_A5B7.png)
+         ![增量：170W季节平均盐度断面](doc/fig/Vertical_Section_-170.5E_Salinity_diff2_8594_A5B7.png)
       2. 冬季平均
          ![170W冬季平均盐度断面](doc/fig/Vertical_Section_-170.5E_Salinity_Winter.png)
          ![增量：170W冬季平均盐度断面](doc/fig/Vertical_Section_-170.5E_Salinity_Winter_diff_8594_A5B7.png)
@@ -170,6 +227,6 @@
 
 ## 联系我
 
-Name: 危国锐（Wei Guorui）
-ID: 120034910021
-E-mail: 313017602@qq.com
+* Name: 危国锐（Wei Guorui）
+* ID: 120034910021
+* E-mail: weiguorui@sjtu.edu.cn;313017602@qq.com
