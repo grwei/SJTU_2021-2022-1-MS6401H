@@ -9,14 +9,17 @@
 
 clc; clear; close all;
 
-% 配置搜索路径
-mfile_fullpath = mfilename('fullpath'); % the full path and name of the file in which the call occurs, not including the filename extension.
-mfile_fullpath_without_filename = mfile_fullpath(1:end-strlength(mfilename));
-addpath(mfile_fullpath_without_filename + "../data", genpath(mfile_fullpath_without_filename + "../lib")); % adds the specified folders to the top of the search path for the current MATLAB® session.
 % 预处理
 if ~isfile("../bin/hw1_pre_treatment.mat")
     hw1_pre_treatment
 end
+if ~isfolder("../doc/fig/")
+    mkdir ../doc/fig/
+end
+% 配置搜索路径
+mfile_fullpath = mfilename('fullpath'); % the full path and name of the file in which the call occurs, not including the filename extension.
+mfile_fullpath_without_filename = mfile_fullpath(1:end-strlength(mfilename));
+addpath(mfile_fullpath_without_filename + "../data", genpath(mfile_fullpath_without_filename + "../lib")); % adds the specified folders to the top of the search path for the current MATLAB® session.
 
 %% 1-2-1
 
@@ -56,8 +59,7 @@ function [] = hw_1_2_1(variable_,time_period_)
         % 用原始数据绘制伪彩图(Pseudocolor plot)，在此基础上再选颜色图方案
         m_proj('robinson','clongitude',0);
         m_pcolor(grid_lon,grid_lat,data); 
-        caxis([hw1_2_1_pre_treatment.(sprintf("%c%s",variable_,time_period_)).min,hw1_2_1_pre_treatment.(sprintf("%s%s",variable_,time_period_)).max]); % Hold Color Limits for Multiple Plots
-%         caxis([33 35])
+        caxis([hw1_2_1_pre_treatment.(sprintf("%c%s",variable_,time_period_)).(sprintf("min_%u_percentiles",hw1_2_1_pre_treatment.(sprintf("%c%s",variable_,time_period_)).percentages_lower)),hw1_2_1_pre_treatment.(sprintf("%c%s",variable_,time_period_)).(sprintf("max_%u_percentiles",hw1_2_1_pre_treatment.(sprintf("%c%s",variable_,time_period_)).percentages_upper))]); % Hold Color Limits for Multiple Plots
         m_coast('patch',[.7 .7 .7],'edgecolor','none'); % Draws a coastline with a gray fill and no border
         m_grid('tickdir','out','linewi',1,'fontsize',6,'fontname','Times New Roman');
         title(sprintf("\\fontname{Times New Roman} %s",hw1_2_GetFullName(decadal_periods)))
@@ -75,7 +77,7 @@ function [] = hw_1_2_1(variable_,time_period_)
     title(TiledChartLayout_t,sprintf("\\fontname{Times New Roman} \\fontsize{20} \\bf %s Surface %s",time_period_fullname,variable_fullname));
     set(gcf,'color','w');   % Need to do this otherwise 'print' turns the lakes black
     % 保存图片
-    exportgraphics(TiledChartLayout_t,sprintf("../doc/Surface_%s_%s.png",variable_fullname,time_period_fullname),'BackgroundColor','none','ContentType','auto','Resolution',800);
+    exportgraphics(TiledChartLayout_t,sprintf("../doc/fig/Surface_%s_%s.png",variable_fullname,time_period_fullname),'BackgroundColor','none','ContentType','auto','Resolution',800);
 end
 
 function [] = hw_1_2_1_diff(variable_,time_period_,decadal_periods_1,decadal_periods_2)
@@ -93,7 +95,7 @@ function [] = hw_1_2_1_diff(variable_,time_period_,decadal_periods_1,decadal_per
     
     %% 绘图
     
-    figure('Name',sprintf("%s %s",time_period_fullname,variable_fullname),'Units','normalized','Position',[0 0 .65 .86])
+    figure('Name',sprintf("%s Surface %s: Diff %s-%s",time_period_fullname,variable_fullname,decadal_periods_2,decadal_periods_1),'Units','normalized','Position',[0 0 .65 .86])
     TiledChartLayout_t = tiledlayout('flow','TileSpacing','tight','Padding','tight');
     TiledChartLayout_t.TileIndexing = 'columnmajor';
     nexttile
@@ -106,24 +108,23 @@ function [] = hw_1_2_1_diff(variable_,time_period_,decadal_periods_1,decadal_per
     % 用原始数据绘制伪彩图(Pseudocolor plot)，在此基础上再选颜色图方案
     m_proj('robinson','clongitude',0);
     m_pcolor(grid_lon,grid_lat,data);
-    max_abs = max(abs(data),[],"all");
-    caxis([-max_abs,max_abs])
+    caxis(prctile(data,[8 92],"all"))
     m_coast('patch',[.7 .7 .7],'edgecolor','none'); % Draws a coastline with a gray fill and no border
     m_grid('tickdir','out','linewi',1,'fontsize',6,'fontname','Times New Roman')
     hold on
     % 绘制等值线
     [cs,h]=m_contour(grid_lon,grid_lat,data,'-k');
     clabel(cs,h,'fontsize',6,'fontname','Times New Roman');
-    % 配置公共颜色图
+    % 配置颜色图
     colormap(m_colmap('jet','step',30));
     cb = colorbar('southoutside','fontname','Times New Roman');
     cb.Layout.Tile = 'east';
     xlabel(cb,sprintf("\\fontname{Times New Roman} %s",hw1_2_GetVariableUnits(variable_)))
-    % 公共标题
+    % 标题
     title(TiledChartLayout_t,sprintf("\\fontname{Times New Roman} \\fontsize{20} \\bf %s Surface %s: Diff %s-%s",time_period_fullname,variable_fullname,decadal_periods_2,decadal_periods_1));
     set(gcf,'color','w');   % Need to do this otherwise 'print' turns the lakes black
     % 保存图片
-    exportgraphics(TiledChartLayout_t,sprintf("../doc/Surface_%s_%s_diff_%s_%s.png",variable_fullname,time_period_fullname,decadal_periods_2,decadal_periods_1),'BackgroundColor','none','ContentType','auto','Resolution',800);
+    exportgraphics(TiledChartLayout_t,sprintf("../doc/fig/Surface_%s_%s_diff_%s_%s.png",variable_fullname,time_period_fullname,decadal_periods_2,decadal_periods_1),'BackgroundColor','none','ContentType','auto','Resolution',500);
 end
 
 function FullName = hw1_2_GetFullName(str_)

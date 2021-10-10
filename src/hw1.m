@@ -9,6 +9,11 @@
 
 clc; clear; close all;
 
+% 
+if ~isfolder("../doc/fig/")
+    mkdir ../doc/fig/
+end
+
 % 配置搜索路径
 mfile_fullpath = mfilename('fullpath'); % the full path and name of the file in which the call occurs, not including the filename extension.
 mfile_fullpath_without_filename = mfile_fullpath(1:end-strlength(mfilename));
@@ -50,12 +55,10 @@ function [] = hw1_1(source_full_path,var_name,var_unit,fig_title)
     [grid_lon,grid_lat] = ndgrid(lon,lat);
     data = ncread(source_full_path,var_name,[1,1,1],[Inf,Inf,Inf],[1,1,1]);
     data(data == ncreadatt(source_full_path,var_name,'missing_value')) = NaN; % 将缺省值改为 NaN
-    data_min = min(data,[],'all');
-    data_max = max(data,[],'all');
     
     %% 绘图
     
-    figure('Name',var_name,'Units','normalized','Position',[0 0 1 1])
+    figure('Name',var_name,'Units','normalized','Position',[0 0 .76 1])
     TiledChartLayout_t = tiledlayout('flow','TileSpacing','tight','Padding','tight');
     TiledChartLayout_t.TileIndexing = 'columnmajor';
     for month_ = 1:12
@@ -63,7 +66,7 @@ function [] = hw1_1(source_full_path,var_name,var_unit,fig_title)
         % 用原始数据绘制伪彩图(Pseudocolor plot)，在此基础上再选颜色图方案
         m_proj('robinson','clongitude',(var_name == "longrad") * 180); % longrad.cdf 中的经度(lon) 是 0~360 degree East, 其余都是 -180 ~ 180 degree East.
         m_pcolor(grid_lon,grid_lat,data(:,:,month_)); 
-        caxis([data_min data_max]); % Hold Color Limits for Multiple Plots
+        caxis(prctile(data,[8 92],"all")); % Hold Color Limits for Multiple Plots
         m_coast('patch',[.7 .7 .7],'edgecolor','none'); % Draws a coastline with a gray fill and no border
         m_grid('tickdir','out','linewi',1,'fontsize',6,'fontname','Times New Roman');
         title('\fontname{Times New Roman}' + string(MONTH_NAME_SHORT(month_)))
@@ -81,5 +84,5 @@ function [] = hw1_1(source_full_path,var_name,var_unit,fig_title)
     title(TiledChartLayout_t,'\fontname{Times New Roman} \fontsize{20} \bf' + string(fig_title));
     set(gcf,'color','w');   % Need to do this otherwise 'print' turns the lakes black
     % 保存图片
-    exportgraphics(TiledChartLayout_t,'../doc/' + string(fig_title) + ".png",'BackgroundColor','none','ContentType','auto','Resolution',800);
+    exportgraphics(TiledChartLayout_t,"../doc/fig/" + string(fig_title) + ".png",'BackgroundColor','none','ContentType','auto','Resolution',500);
 end
