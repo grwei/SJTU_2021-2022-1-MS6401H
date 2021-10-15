@@ -8,7 +8,7 @@
 [toc]
 
 * [作业1](doc/hw1.md)
-* [作业2](doc/hw2.md)
+* [作业2](doc/hw2.pdf)
 
 ## 联系我
 
