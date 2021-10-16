@@ -24,7 +24,7 @@ A parcel of water, starting at the sea surface, is adiabatically transported to 
 
 1. 绝热的**封闭**系。水团与外界无物质交换（封闭），无热传导（绝热）；
 2. 水团内温度、压强、盐度等物理量都呈均匀分布；
-3. 准静力条件。水团表面压强 $p$ 与环境压强 $p_{\mathrm{e}}$ 相等，且 $\dfrac{\mathop{\mathrm{d} p}}{\mathop{\mathrm{d}z}} \equiv \dfrac{\partial p_{\mathrm{e}}}{\partial z}$，但气团内的温度、密度、盐度未必与外界相等；
+3. 准静力条件。水团表面压强 $p$ 与环境压强 $p_{\mathrm{e}}$ 相等，且 $\dfrac{\mathop{\mathrm{d} p}}{\mathop{\mathrm{d}z}} \equiv \dfrac{\partial p_{\mathrm{e}}}{\partial z}$，但水团内的温度、密度、盐度未必与外界相等；
 4. 准静态过程。水团的状态变化无限缓慢，在路径上总是处于热力学平衡态；
 5. 水团对外界做功的唯一途径是做体积变化功（膨胀功）。
 
@@ -127,7 +127,7 @@ d) The Greenland ice shelf is about $3 \times 10^6 \mathop{\mathrm{km^3}}.$ In t
 对于单位截面水柱，在单位时间内吸热
 $$\begin{aligned}
     \tag{4.3}
-    I = \int_{-h_0}^{h'} c_{\text{p}} \rho \dfrac{\partial T}{\partial t} \mathop{\mathrm{d} z} \xlongequal{(4.1)} c_{\text{p}} \overline{\rho} h \dfrac{\partial T}{\partial t},
+    I = \int_{-\infty}^{h'} c_{\text{p}} \rho \dfrac{\partial T}{\partial t} \mathop{\mathrm{d} z} \xlongequal{(4.1)} c_{\text{p}} \overline{\rho} h \dfrac{\partial T}{\partial t},
 \end{aligned}
 $$
 密度增加
@@ -141,13 +141,13 @@ $$\begin{aligned}
     \dfrac{\mathop{\mathrm{d} \overline{\rho}}}{\mathop{\mathrm{d} t}} = -\alpha \overline{\rho} \dfrac{\partial T}{\partial t}.
 \end{aligned}
 $$
-由式 $(4.3)(4.4)$ 联立消去 $\dfrac{\partial T}{\partial t}$ 得
+式 $(4.3)(4.4)$ 联立消去 $\dfrac{\partial T}{\partial t},$ 得
 $$\begin{aligned}
     \tag{4.5}
     c_{\text{p}} h \mathop{\mathrm{d} \overline{\rho}} = -I \alpha \mathop{\mathrm{d} t},
 \end{aligned}
 $$
-再由 $(4.2)$ 消去 $\overline{\rho}$ 得
+再由式 $(4.2)$ 消去 $\overline{\rho}$ 得
 $$\begin{aligned}
     \tag{4.6}
     c_{\text{p}} \overline{\rho}_0 h_0 h^{-1} \mathop{\mathrm{d} h} = \alpha I \mathop{\mathrm{d} t}.
