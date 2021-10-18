@@ -31,11 +31,11 @@ A parcel of water, starting at the sea surface, is adiabatically transported to 
 #### 结论
 
 1. 温度 $T$ 上升。热力学第一定律 $\delta Q = \mathop{\mathrm{d} U} + \delta W$；下沉的水团被压缩，故对外做负的体积功即 $\delta W < 0 \xRightarrow{\delta Q = 0} \mathop{\mathrm{d} U} > 0 \Rightarrow T \uparrow.$
-2. 位温 $\theta$ 守恒。已假定水团进行绝热准静态过程，这是可逆过程，即若将水团以准静态过程移回海表面，其温度（这便是位温）将是初始温度。
+2. 位温 $\theta$ 守恒。因已假定水团进行绝热准静态过程，这是可逆过程，即若将水团以准静态过程移回海表面，其温度（这便是位温）将是初始温度。
 3. 盐度 $S$ 不变。已假定水团为封闭系，则其质量 $m$ 和组分均不变，虽然体积 $V$ 减小使得盐的浓度上升，但盐度是按质量分数定义，故盐度不变。
 4. 密度 $\rho$ 上升。$\rho \uparrow = \dfrac{m}{V \downarrow}.$
-5. 声速一般不守恒。声速是温度、盐度、压强的函数，上面已指出三者均改变。
-6. 质量 $m$ 守恒。已假定水团是封闭系。
+5. 声速一般不守恒。因声速是温度、盐度、压强的函数，而上面已指出水团的温度上升、压强增大。
+6. 质量 $m$ 守恒。因已假定水团是封闭系。
 
 ## Question 2
 
@@ -109,7 +109,7 @@ d) The Greenland ice shelf is about $3 \times 10^6 \mathop{\mathrm{km^3}}.$ In t
 
 #### 模型
 
-1. **平面平行海洋**。记海水温度 $T = T(z,t),$ 密度 $\rho = \rho(z,t),$ $p, \rho$ 具有连续的二阶偏导数。又假定海水定压比热 $c_{\text{p}} \equiv 4000 \mathop{\text{J} \cdot \text{kg}^{-1} \cdot \text{K}^{-1}}.$
+1. **平面平行海洋**。记海水温度 $T = T(z,t),$ 密度 $\rho = \rho(z,t),$ $p, \rho$ 有界，且除在 $z = -z_0$ 处外具有连续的二阶偏导数。又假定海水定压比热 $c_{\text{p}} \equiv 4000 \mathop{\text{J} \cdot \text{kg}^{-1} \cdot \text{K}^{-1}}.$
 2. **上层均匀加热**。称原海平面高度 $z \in [-h_0, h']$ 的部分为**上层**，$h_0 = 1000 \mathop{\text{m}},$ $h' = h'(t)$ 为海平面上升量，$h'(0) = 0.$ 记上层厚度 $h = h(t):= h_0 + h'.$ 假定
    $$\begin{aligned}
        \tag{4.1}
@@ -147,7 +147,7 @@ $$\begin{aligned}
     c_{\text{p}} h \mathop{\mathrm{d} \overline{\rho}} = -I \alpha \mathop{\mathrm{d} t},
 \end{aligned}
 $$
-再由式 $(4.2)$ 消去 $\overline{\rho}$ 得
+再由式 $(4.2)$ 消去 $\overline{\rho},$ 得
 $$\begin{aligned}
     \tag{4.6}
     c_{\text{p}} \overline{\rho}_0 h_0 h^{-1} \mathop{\mathrm{d} h} = \alpha I \mathop{\mathrm{d} t}.
@@ -165,7 +165,12 @@ $$\begin{aligned}
     \overline{I} = \dfrac{c_{\text{p}} \overline{\rho}_0 h_0}{\alpha t} \ln \dfrac{h}{h_0},
 \end{aligned}
 $$
-式中 $\displaystyle \overline{I} := \dfrac 1t \int_0^t I \mathop{\mathrm{d} t}$ 是海平面净辐射通量密度的时间平均值。
+式中 $\displaystyle \overline{I} := \dfrac 1t \int_0^t I \mathop{\mathrm{d} t}$ 是海平面净辐射通量密度的时间平均值。由上式得
+$$\begin{aligned}
+    \tag{4.8}
+    \lim_{h' \to 0} \alpha \overline{I} t = c_{\text{p}} \overline{\rho}_0 h'.
+\end{aligned}
+$$
 
 （a） 由式 $(\text{4.7b}),$ 需要的海平面净辐射通量密度
 $$\begin{aligned}
