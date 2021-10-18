@@ -113,7 +113,7 @@ d) The Greenland ice shelf is about $3 \times 10^6 \mathop{\mathrm{km^3}}.$ In t
 2. **上层均匀加热**。称原海平面高度 $z \in [-h_0, h']$ 的部分为**上层**，$h_0 = 1000 \mathop{\text{m}},$ $h' = h'(t)$ 为海平面上升量，$h'(0) = 0.$ 记上层厚度 $h = h(t):= h_0 + h'.$ 假定
    $$\begin{aligned}
        \tag{4.1}
-       \left. \dfrac{\partial T}{\partial t} \right|_{z \le -h_0} = 0; \quad \dfrac{\partial}{\partial z} \left( \dfrac{\partial T}{\partial t} \right) = 0, \quad \forall z \in (-h_0, h'].
+       \left. \dfrac{\partial T}{\partial t} \right|_{z < -h_0} = 0; \quad \dfrac{\partial}{\partial z} \left( \dfrac{\partial T}{\partial t} \right) = 0, \quad \forall z \in (-h_0, h'].
    \end{aligned}$$
 
 3. **上层质量守恒**。记 $\displaystyle \overline{\rho} = \overline{\rho}(t) := \dfrac{1}{h} \int_{-h_0}^{h'} \rho \mathop{\mathrm{d} z}, \quad \overline{\rho}_0 := \overline{\rho}(0).$ 假定
