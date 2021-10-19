@@ -109,7 +109,7 @@ d) The Greenland ice shelf is about $3 \times 10^6 \mathop{\mathrm{km^3}}.$ In t
 
 #### 模型
 
-1. **平面平行海洋**。记海水温度 $T = T(z,t),$ 密度 $\rho = \rho(z,t),$ $p, \rho$ 有界，且除在 $z = -z_0$ 处外具有连续的二阶偏导数。又假定海水定压比热 $c_{\text{p}} \equiv 4000 \mathop{\text{J} \cdot \text{kg}^{-1} \cdot \text{K}^{-1}}.$
+1. **平面平行海洋**。记海水温度 $T = T(z,t),$ 密度 $\rho = \rho(z,t),$ $p, \rho$ 有界，且除在 $z = -h_0$ 处外具有连续的二阶偏导数。又假定海水定压比热 $c_{\text{p}} \equiv 4000 \mathop{\text{J} \cdot \text{kg}^{-1} \cdot \text{K}^{-1}}.$
 2. **上层均匀加热**。称原海平面高度 $z \in [-h_0, h']$ 的部分为**上层**，$h_0 = 1000 \mathop{\text{m}},$ $h' = h'(t)$ 为海平面上升量，$h'(0) = 0.$ 记上层厚度 $h = h(t):= h_0 + h'.$ 假定
    $$\begin{aligned}
        \tag{4.1}
@@ -144,10 +144,10 @@ $$
 式 $(4.3)(4.4)$ 联立消去 $\dfrac{\partial T}{\partial t},$ 得
 $$\begin{aligned}
     \tag{4.5}
-    c_{\text{p}} h \mathop{\mathrm{d} \overline{\rho}} = -I \alpha \mathop{\mathrm{d} t},
+    c_{\text{p}} h \mathop{\mathrm{d} \overline{\rho}} = - \alpha I \mathop{\mathrm{d} t},
 \end{aligned}
 $$
-再由式 $(4.2)$ 消去 $\overline{\rho},$ 得
+再与式 $(4.2)$ 联立消去 $\overline{\rho},$ 得
 $$\begin{aligned}
     \tag{4.6}
     c_{\text{p}} \overline{\rho}_0 h_0 h^{-1} \mathop{\mathrm{d} h} = \alpha I \mathop{\mathrm{d} t}.
@@ -172,11 +172,29 @@ $$\begin{aligned}
 \end{aligned}
 $$
 
+另外，由
+$$
+\overline{\rho}_0 h_0 = \overline{\rho} h, \quad \overline{\rho} - \overline{\rho}_0 \approx - \alpha \overline{\rho}_0 \Delta T, \quad \overline{I} t = c_{\text{p}} \overline{\rho} h \Delta T
+$$
+可得
+$$\begin{aligned}
+    \tag{$4.8'$}
+    \alpha \overline{I} t \approx c_{\text{p}} \overline{\rho}_0 h' h_0 h^{-1} \approx c_{\text{p}} \overline{\rho}_0 h'.
+\end{aligned}
+$$
+
 （a） 由式 $(\text{4.7b}),$ 需要的海平面净辐射通量密度
 $$\begin{aligned}
     \overline{I} & = \dfrac{c_{\text{p}} \overline{\rho}_0 h_0}{\alpha t} \ln \dfrac{h}{h_0} \\
-    & = \dfrac{4000 \times 1025 \times 1000}{(2.5 \times 10^{-4}) \times (100 \times 365.24 \times 24 \times 3600)} \ln \dfrac{1001}{1000}\\
-    & = 5.19 \mathop{\text{W} / \mathrm{m}^2}.
+    & = \dfrac{4000 \times 1025 \times 1000}{(2.5 \times 10^{-4}) \times (78 \times 365.24 \times 24 \times 3600)} \ln \dfrac{1001}{1000}\\
+    & = 6.66 \mathop{\text{W} / \mathrm{m}^2}.
+\end{aligned}
+$$
+或由式 $(4.8'),$
+$$\begin{aligned}
+    \overline{I} & \approx \dfrac{c_{\text{p}} \overline{\rho}_0 h'}{\alpha t}\\
+    & = \dfrac{4000 \times 1025 \times 1}{(2.5 \times 10^{-4}) \times (78 \times 365.24 \times 24 \times 3600)}\\
+    & = 6.66 \mathop{\text{W} / \mathrm{m}^2}.
 \end{aligned}
 $$
 
@@ -184,6 +202,13 @@ $$
 $$\begin{aligned}
     h' & = h - h_0 = h_0 \left[ \exp \left( \dfrac{\alpha \overline{I} t}{c_{\text{p}} \overline{\rho}_0 h_0} \right) - 1 \right]\\
     & = 1000 \left[ \exp \left( \dfrac{(2.5 \times 10^{-4}) \times 2 \times (10 \times 365.24 \times 24 \times 3600)}{4000 \times 1025 \times 1000} \right) - 1 \right]\\
+    & = 0.0385 \mathop{\text{m}} = 3.85 \mathop{\text{cm}}.
+\end{aligned}
+$$
+或由式 $(4.8'),$
+$$\begin{aligned}
+    h' & \approx \dfrac{\alpha \overline{I} t}{c_{\text{p}} \overline{\rho}_0}\\
+    & = \dfrac{(2.5 \times 10^{-4}) \times 2 \times (10 \times 365.24 \times 24 \times 3600)}{4000 \times 1025}\\
     & = 0.0385 \mathop{\text{m}} = 3.85 \mathop{\text{cm}}.
 \end{aligned}
 $$
