@@ -1,4 +1,4 @@
-# 作业2
+# 作业 2
 
 研-MS6401H-440-M01-物理海洋学
 
@@ -22,20 +22,20 @@ A parcel of water, starting at the sea surface, is adiabatically transported to 
 
 #### 模型
 
-1. 绝热的**封闭**系。水团与外界无物质交换（封闭），无热传导（绝热）；
+1. 绝热的**封闭**系. 水团与外界无物质交换（封闭），无热传导（绝热）；
 2. 水团内温度、压强、盐度等物理量都呈均匀分布；
-3. 准静力条件。水团表面压强 $p$ 与环境压强 $p_{\mathrm{e}}$ 相等，且 $\dfrac{\mathop{\mathrm{d} p}}{\mathop{\mathrm{d}z}} \equiv \dfrac{\partial p_{\mathrm{e}}}{\partial z}$，但水团内的温度、密度、盐度未必与外界相等；
-4. 准静态过程。水团的状态变化无限缓慢，在路径上总是处于热力学平衡态；
-5. 水团对外界做功的唯一途径是做体积变化功（膨胀功）。
+3. 准静力条件. 水团表面压强 $p$ 与环境压强 $p_{\mathrm{e}}$ 相等，且 $\dfrac{\mathop{\mathrm{d} p}}{\mathop{\mathrm{d}z}} \equiv \dfrac{\partial p_{\mathrm{e}}}{\partial z}$，但水团内的温度、密度、盐度未必与外界相等；
+4. 准静态过程. 水团的状态变化无限缓慢，在路径上总是处于热力学平衡态；
+5. 水团对外界做功的唯一途径是做体积变化功（膨胀功）.
 
 #### 结论
 
-1. 温度 $T$ 上升。热力学第一定律 $\delta Q = \mathop{\mathrm{d} U} + \delta W$；下沉的水团被压缩，故对外做负的体积功即 $\delta W < 0 \xRightarrow{\delta Q = 0} \mathop{\mathrm{d} U} > 0 \Rightarrow T \uparrow.$
-2. 位温 $\theta$ 守恒。因已假定水团进行绝热准静态过程，这是可逆过程，即若将水团以准静态过程移回海表面，其温度（这便是位温）将是初始温度。
-3. 盐度 $S$ 不变。已假定水团为封闭系，则其质量 $m$ 和组分均不变，虽然体积 $V$ 减小使得盐的浓度上升，但盐度是按质量分数定义，故盐度不变。
-4. 密度 $\rho$ 上升。$\rho \uparrow = \dfrac{m}{V \downarrow}.$
-5. 声速一般不守恒。因声速是温度、盐度、压强的函数，而上面已指出水团的温度上升、压强增大。
-6. 质量 $m$ 守恒。因已假定水团是封闭系。
+1. 温度 $T$ 上升. 热力学第一定律 $\delta Q = \mathop{\mathrm{d} U} + \delta W$；下沉的水团被压缩，故对外做负的体积功即 $\delta W < 0 \xRightarrow{\delta Q = 0} \mathop{\mathrm{d} U} > 0 \Rightarrow T \uparrow.$
+2. 位温 $\theta$ 守恒. 因已假定水团进行绝热准静态过程，这是可逆过程，即若将水团以准静态过程移回海表面，其温度（这便是位温）将是初始温度.
+3. 盐度 $S$ 不变. 已假定水团为封闭系，则其质量 $m$ 和组分均不变，虽然体积 $V$ 减小使得盐的浓度上升，但盐度是按质量分数定义，故盐度不变.
+4. 密度 $\rho$ 上升. $\rho \uparrow = \dfrac{m}{V \downarrow}.$
+5. 声速一般不守恒. 因声速是温度、盐度、压强的函数，而上面已指出水团的温度上升、压强增大.
+6. 质量 $m$ 守恒. 因已假定水团是封闭系.
 
 ## Question 2
 
@@ -91,7 +91,7 @@ b) The annual mean ocean temperature structure is approximately in steady state.
 ### Answer 3
 
 1. 对于单位截面的厚 $H = 50 \mathop{\text{m}}$ 的水柱，年平均温度增加 $\Delta \overline{\theta} = \dfrac{\Delta \overline{Q}}{c_{\text{p}} M} = \dfrac{\overline{I} T_{\text{1 year}}}{c_{\text{p}} \rho H} = \dfrac{(150) \times (365.24 \times 24 \times 3600)}{4000 \times 1025 \times 50} = 23.09 \mathop{\text{K}} \xRightarrow{\overline{\theta}_0 = 25 \mathop{{^\circ \text{C}}}} \overline{\theta} = \overline{\theta}_0 + \Delta \overline{\theta} = 25 + 23.09 = 48.09 \mathop{{^\circ \text{C}}}.$
-2. 热带地区海洋富余的热量，将通过大洋环流以及海气相互作用-大气环流等物理过程输送到热带外地区。The atmosphere transports most of the heat needed to warm latitudes higher than $35^{\circ}$. The oceanic meridional transport is comparable to the atmospheric meridional transport only in the tropics (Robert H Stewart, *Introduction to Physical Oceanography*, 2009).
+2. 热带地区海洋富余的热量，将通过大洋环流以及海气相互作用-大气环流等物理过程输送到热带外地区. The atmosphere transports most of the heat needed to warm latitudes higher than $35^{\circ}$. The oceanic meridional transport is comparable to the atmospheric meridional transport only in the tropics (Robert H Stewart, *Introduction to Physical Oceanography*, 2009).
 
 ## Question 4
 
@@ -109,14 +109,14 @@ d) The Greenland ice shelf is about $3 \times 10^6 \mathop{\mathrm{km^3}}.$ In t
 
 #### 模型
 
-1. **平面平行海洋**。记海水温度 $T = T(z,t),$ 密度 $\rho = \rho(z,t),$ $p, \rho$ 有界，且除在 $z = -h_0$ 处外具有连续的二阶偏导数。又假定海水定压比热 $c_{\text{p}} \equiv 4000 \mathop{\text{J} \cdot \text{kg}^{-1} \cdot \text{K}^{-1}}.$
-2. **上层均匀加热**。称原海平面高度 $z \in [-h_0, h']$ 的部分为**上层**，$h_0 = 1000 \mathop{\text{m}},$ $h' = h'(t)$ 为海平面上升量，$h'(0) = 0.$ 记上层厚度 $h = h(t):= h_0 + h'.$ 假定
+1. **平面平行海洋**. 记海水温度 $T = T(z,t),$ 密度 $\rho = \rho(z,t),$ $p, \rho$ 有界，且除在 $z = -h_0$ 处外具有连续的二阶偏导数. 又假定海水定压比热 $c_{\text{p}} \equiv 4000 \mathop{\text{J} \cdot \text{kg}^{-1} \cdot \text{K}^{-1}}.$
+2. **上层均匀加热**. 称原海平面高度 $z \in [-h_0, h']$ 的部分为**上层**，$h_0 = 1000 \mathop{\text{m}},$ $h' = h'(t)$ 为海平面上升量，$h'(0) = 0.$ 记上层厚度 $h = h(t):= h_0 + h'.$ 假定
    $$\begin{aligned}
        \tag{4.1}
        \left. \dfrac{\partial T}{\partial t} \right|_{z < -h_0} = 0; \quad \dfrac{\partial}{\partial z} \left( \dfrac{\partial T}{\partial t} \right) = 0, \quad \forall z \in (-h_0, h'].
    \end{aligned}$$
 
-3. **上层质量守恒**。记 $\displaystyle \overline{\rho} = \overline{\rho}(t) := \dfrac{1}{h} \int_{-h_0}^{h'} \rho \mathop{\mathrm{d} z}, \quad \overline{\rho}_0 := \overline{\rho}(0).$ 假定
+3. **上层质量守恒**. 记 $\displaystyle \overline{\rho} = \overline{\rho}(t) := \dfrac{1}{h} \int_{-h_0}^{h'} \rho \mathop{\mathrm{d} z}, \quad \overline{\rho}_0 := \overline{\rho}(0).$ 假定
    $$\begin{aligned}
        \tag{4.2}
        \overline{\rho} h \equiv \overline{\rho}_0 h_0.
@@ -165,7 +165,7 @@ $$\begin{aligned}
     \overline{I} = \dfrac{c_{\text{p}} \overline{\rho}_0 h_0}{\alpha t} \ln \dfrac{h}{h_0},
 \end{aligned}
 $$
-式中 $\displaystyle \overline{I} := \dfrac 1t \int_0^t I \mathop{\mathrm{d} t}$ 是海平面净辐射通量密度的时间平均值。由上式得
+式中 $\displaystyle \overline{I} := \dfrac 1t \int_0^t I \mathop{\mathrm{d} t}$ 是海平面净辐射通量密度的时间平均值. 由上式得
 $$\begin{aligned}
     \tag{4.8}
     \lim_{h' \to 0} \alpha \overline{I} t = c_{\text{p}} \overline{\rho}_0 h'.
@@ -217,7 +217,7 @@ $$
 $$
 \rho_{\text{ice}} A h' = 920 \times (3.6 \times 10^{14}) \times 0.0385 = 1.28 \times 10^{16} \mathop{\text{kg}}
 $$
-的海冰。
+的海冰.
 
 （d）海平面将上升
 $$
