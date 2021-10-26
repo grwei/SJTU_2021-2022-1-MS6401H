@@ -25,7 +25,7 @@ The attached figure shows surface height in the Pacific Ocean.
 
 ![geostrophy-anwser.jpg](fig/geostrophy-anwser.jpg)
 
-图源：课程文档。
+图源：课程文档.
 
 (e) Write down the geostrophic balance from the $x$ momentum equation. We will apply this to the northward Kuroshio. You may do this with a word equation or with the full momentum equation. Which terms in the full $x$ momentum equation are missing from the geostrophic balance?
 
@@ -99,20 +99,27 @@ $$
 
 进一步假定**海水密度为常数 $\overline{\rho}$**，则位置 $z = -h$ 处的压强差 $\delta p = \overline{\rho} g \delta \eta = 1025 \times 9.8 \times (+0.7) = 7031.5 \mathop{\text{Pa}}.$
 
-由 $(3 {\text{'}})$ 得相应的地转流的 $y$ 分量 $v_{\text{g}} = \dfrac{1}{\overline{\rho} f} \dfrac{\partial p}{\partial x} \approx \dfrac{1}{\overline{\rho} f} \dfrac{\delta p}{\delta x} = \dfrac{1}{\overline{\rho} f} \dfrac{\overline{\rho} g \delta \eta}{\delta x} = \dfrac{g}{2 \Omega \sin{\varphi}} \dfrac{\delta \eta}{\delta x} = \dfrac{9.8}{2 \times (2 \pi / (24 \times 3600)) \times \sin{30 {^{\circ}}}} \dfrac{0.7}{50} = 1.89 \mathop{\text{m} \cdot \text{s}^{-1}}.$
+由 $(3 {\text{'}})$ 得相应的地转流的 $y$ 分量
+$$\begin{aligned}
+    v_{\text{g}} & = \dfrac{1}{\overline{\rho} f} \dfrac{\partial p}{\partial x}\\
+    & \approx \dfrac{1}{\overline{\rho} f} \dfrac{\delta p}{\delta x} = \dfrac{1}{\overline{\rho} f} \dfrac{\overline{\rho} g \delta \eta}{\delta x} = \dfrac{g}{2 \Omega \sin{\varphi}} \dfrac{\delta \eta}{\delta x}\\
+    & = \dfrac{9.8}{2 \times (2 \pi / (24 \times 3600)) \times \sin{30 {^{\circ}}}} \dfrac{0.7}{50}\\
+    & = 1.89 \mathop{\text{m} \cdot \text{s}^{-1}}.
+\end{aligned}
+$$
 
 (h) Assume now that the seawater density just east of the Kuroshio is $1024 \mathop{\text{kg} / \text{m}^3}$ and density just west of the Kuroshio is $1025 \mathop{\text{kg} / \text{m}^3}.$ Now do the same calculation as in part (g), but at a depth of $1000 \mathop{\text{m}}.$ What is the northward speed of the Kuroshio at $1000 \mathop{\text{m}}$ with this density difference across the current? Compare with the surface speed from part (g).
 
 **Answer:**
 
-由 $(3)(6)$ 得位置 $z = -h$ 处地转流的 $x$ 分量
+由 $(3)(6)$ 得位置 $z = -h$ 处地转流的 $y$ 分量
 $$\begin{aligned}
     \tag{7}
     v_{\text{g}} & = \dfrac{1}{\rho f} \dfrac{\partial \rho}{\partial x} g(h + \eta) + \dfrac{g}{f} \dfrac{\partial \eta}{\partial x}\\
     & \approx \dfrac{1}{((1024 + 1025) / 2) \times (7.27 \times 10^{-5})} \times \dfrac{1025 - 1024}{5 \times 10^{-4} - 0}\\
     & \times 9.8 \times (1000 + ((0 + 0.7) / 2))\\
     & + \dfrac{9.8}{7.27 \times 10^{-5}} \times \dfrac{0.7 - 0}{5 \times 10^{-4} - 0}\\
-    & = 4.52 \mathop{\text{m} \cdot \text{s}^{-1}}.
+    & = 4.52 \mathop{\text{m} \cdot \text{s}^{-1}},
 \end{aligned}
 $$
 
@@ -161,7 +168,7 @@ $$\begin{aligned}
 \end{aligned}
 $$
 
-从而右侧温度比左侧温度高
+从而流动方向的右侧的温度比左侧的高
 $$\begin{aligned}
     \tag{13}
     \delta T & \approx \dfrac{\partial T}{\partial n} \delta n\\
