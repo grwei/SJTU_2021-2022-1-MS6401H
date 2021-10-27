@@ -103,8 +103,8 @@ $$
 $$\begin{aligned}
     v_{\text{g}} & = \dfrac{1}{\overline{\rho} f} \dfrac{\partial p}{\partial x}\\
     & \approx \dfrac{1}{\overline{\rho} f} \dfrac{\delta p}{\delta x} = \dfrac{1}{\overline{\rho} f} \dfrac{\overline{\rho} g \delta \eta}{\delta x} = \dfrac{g}{2 \Omega \sin{\varphi}} \dfrac{\delta \eta}{\delta x}\\
-    & = \dfrac{9.8}{2 \times (2 \pi / (24 \times 3600)) \times \sin{30 {^{\circ}}}} \dfrac{0.7}{50}\\
-    & = 1.89 \mathop{\text{m} \cdot \text{s}^{-1}}.
+    & = \dfrac{9.8}{2 \times (2 \pi / (24 \times 3600)) \times \sin{30 {^{\circ}}}} \dfrac{0.7 - 0}{100 \times 10^3 - 0}\\
+    & = 0.943 \mathop{\text{m} \cdot \text{s}^{-1}}.
 \end{aligned}
 $$
 
@@ -116,14 +116,15 @@ $$
 $$\begin{aligned}
     \tag{7}
     v_{\text{g}} & = \dfrac{1}{\rho f} \dfrac{\partial \rho}{\partial x} g(h + \eta) + \dfrac{g}{f} \dfrac{\partial \eta}{\partial x}\\
-    & \approx \dfrac{1}{((1024 + 1025) / 2) \times (7.27 \times 10^{-5})} \times \dfrac{1025 - 1024}{5 \times 10^{-4} - 0}\\
+    & \approx \dfrac{1}{((1024 + 1025) / 2) \times (7.27 \times 10^{-5})} \times \dfrac{1024 - 1025}{100 \times 10^{3} - 0}\\
     & \times 9.8 \times (1000 + ((0 + 0.7) / 2))\\
-    & + \dfrac{9.8}{7.27 \times 10^{-5}} \times \dfrac{0.7 - 0}{5 \times 10^{-4} - 0}\\
-    & = 4.52 \mathop{\text{m} \cdot \text{s}^{-1}},
+    & + \dfrac{9.8}{7.27 \times 10^{-5}} \times \dfrac{0.7 - 0}{100 \times 10^{3} - 0}\\
+    & = -1.316 + 0.943\\
+    & = -0.373 \mathop{\text{m} \cdot \text{s}^{-1}},
 \end{aligned}
 $$
 
-可见比 (g) 中的计算结果大. 这是因为，在题给条件下，水平密度差异对地转流速的贡献与海表面高度差对地转流速的贡献同号：东侧密度较西侧大，故东侧压强随深度增加得较西侧快，故两侧压强差随深度增加而增加（东侧压强较大）；而东侧海表面较高，这一因素也利于东侧压强大于西侧的. 由 $(3)$ 可知，北半球的东侧高压将激发向北的地转流.
+可见这与 (g) 中的计算结果符号相反. 这是因为，在题给条件下，水平密度差异对地转流速的贡献与海表面高度差对地转流速的贡献异号：西侧密度较东侧大，由 $(5)$ 可知西侧压强随深度增加得较西侧快，利于压强西高东低；而东侧海表面较高，这一因素利于压强东高西低. 在接近海表面处，压强为东高西低；随着深度增加，两侧压强差先逐渐减小，至某一深度，压强差为零；深度继续增加，压强差逆转为西高东低，且压强差增大. 由 $(3)$ 可知，北半球的西侧高压将激发向南的地转流，故表层向北的地转流随深度增加将逆转向南的地转流.
 
 ## Question 2 (Thermal wind)
 
