@@ -90,7 +90,7 @@ $$\begin{aligned}
 \end{aligned}
 $$
 
-上式对 $z$ 从位置 $z = -h$ 到海表面 $ z = \eta $ 积分，假定**海表面是自由面**（从而海表面压强是大气压 $p|_{z = 0} = p_{\text{a}}$），得位置 $z = -h$ 处的压强
+上式对 $z$ 从位置 $z = -h$ 到海表面 $ z = \eta $ 积分，假定**海表面是自由面**（从而海表面压强是大气压 $p|_{z = \eta} = p_{\text{a}}$），得位置 $z = -h$ 处的压强
 $$\begin{aligned}
     \tag{6}
     p = p_{\text{a}} + \rho g (h + \eta).
