@@ -25,7 +25,7 @@ $$
 风区 Ekman 层底平均上升流速
 $$\begin{aligned}
     \tag{2}
-    \overline{w} = \dfrac{M_y^{(5^{\circ} \text{N})} - M_y^{(5^{\circ} \text{S})}}{\rho Y} = \dfrac{6.311 \times 10^3 - (-6.311 \times 10^3)}{1027 \times (6371 \times 10^3 \times (10 / 180))}= 3.47 \times 10^{-5} \mathop{\text{m} / \text{s}}.
+    \overline{w} = \dfrac{M_y^{(5^{\circ} \text{N})} - M_y^{(5^{\circ} \text{S})}}{\rho Y} = \dfrac{6.311 \times 10^3 - (-6.311 \times 10^3)}{1027 \times (6371 \times 10^3 \times (10 / 180) \pi)}= 1.11 \times 10^{-5} \mathop{\text{m} / \text{s}}.
 \end{aligned}
 $$
 
@@ -38,8 +38,8 @@ $$
 \begin{aligned}
     \tag{3}
     \overline{I} & = Y^{-1} c_p (M_y^{(5^{\circ} \text{N})} - M_y^{(5^{\circ} \text{S})}) \Delta T\\
-    & = (3.54 \times 10^{5})^{-1} \times 4000 \times (2 \times (6.311 \times 10^3)) \times 4\\
-    & = 570 \mathop{\text{W} / \mathrm{m}^2}.
+    & = (6371 \times 10^3 \times (10 / 180) \pi)^{-1} \times 4200 \times (2 \times (6.311 \times 10^3)) \times 4\\
+    & = 191 \mathop{\text{W} / \mathrm{m}^2}.
 \end{aligned}
 $$
 
@@ -51,7 +51,8 @@ Along the equator in the Pacific Ocean, the prevailing winds are easterlies (tra
 
 **Answer:**
 
-赤道太平洋海表面为西高东低，因向西的信风使海水向西堆积. 西风带下北太平洋海表面为东高西低.
+赤道太平洋海表面为西高东低，因向西的信风使海水向西堆积.
+副热带北太平洋海面较高，是因为其北有西风带引起的向南的 Ekman 输运，其南有信风带引起的向北的 Ekman 输运，致副热带北太平洋表层有辐聚，抬高了海面.
 
 (b) Is the sea surface in the western Pacific WARM or COLD compared with the sea surface in the eastern Pacific? Explain briefly why the SST in one region is warm and cold in the other.
 
@@ -63,7 +64,7 @@ Along the equator in the Pacific Ocean, the prevailing winds are easterlies (tra
 
 **Answer:**
 
-赤道太平洋西暖冬冷的 SST 分布，使海表面气压西低东高，引起纬向的 Walker 环流：西太暖池有上升气流，东太冷舌有下沉气流，利于海表面向西的信风的维持，并在赤道上空形成西风.
+赤道太平洋西暖冬冷的 SST 分布，使海表面气压西低东高，引起纬向的 Walker 环流：西太暖池有上升气流，东太冷舌有下沉气流，利于海表面向西的信风的维持，并在上空形成西风.
 
 (e) During an El Nino event, the atmospheric circulation of part (c) weakens. What does this do to the ocean circulation at the sea surface along the equator?
 
@@ -75,7 +76,7 @@ Walker 环流减弱，使得 North and South Equatorial Currents（向西）减�
 
 **Answer:**
 
-North and South Equatorial Currents 减弱，使西太暖池减弱东移，引起西太 SST 负异常、中东太平洋 SST 正异常，造成西太海表面气压升高、西太海表面气压降低，这进一步削弱 Walker 环流.
+North and South Equatorial Currents 减弱，使西太暖池减弱东移，引起西太 SST 负异常、中东太平洋 SST 正异常，造成西太海表面气压升高、西太海表面气压降低，而这又进一步削弱 Walker 环流.
 
 (g) If an El Nino event lasted for a while, would you expect a response in the Equatorial Undercurrent? Why?
 
